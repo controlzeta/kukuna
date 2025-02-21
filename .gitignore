@@ -55,3 +55,4 @@ dkms.conf
 /Kukuna/WebUI/obj
 /Kukuna/AccesoDatos/bin/Debug/net8.0
 /Kukuna/AccesoDatos/obj
+/.vs
