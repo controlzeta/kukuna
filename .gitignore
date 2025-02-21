@@ -50,3 +50,8 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+/Kukuna/API/obj
+/Kukuna/WebUI/bin/Debug/net8.0
+/Kukuna/WebUI/obj
+/Kukuna/AccesoDatos/bin/Debug/net8.0
+/Kukuna/AccesoDatos/obj
