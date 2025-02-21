@@ -1,0 +1,6 @@
+C:\Users\fco55\source\repos\kukuna\Kukuna\DBKukuna\bin\Debug\DBKukuna.dacpac
+C:\Users\fco55\source\repos\kukuna\Kukuna\DBKukuna\bin\Debug\DBKukuna.dll
+C:\Users\fco55\source\repos\kukuna\Kukuna\DBKukuna\bin\Debug\DBKukuna.pdb
+C:\Users\fco55\source\repos\kukuna\Kukuna\DBKukuna\obj\Debug\DBKukuna.sqlproj.AssemblyReference.cache
+C:\Users\fco55\source\repos\kukuna\Kukuna\DBKukuna\obj\Debug\DBKukuna.dll
+C:\Users\fco55\source\repos\kukuna\Kukuna\DBKukuna\obj\Debug\DBKukuna.pdb

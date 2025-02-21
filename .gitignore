@@ -57,3 +57,5 @@ dkms.conf
 /Kukuna/AccesoDatos/obj
 /.vs
 /Kukuna/.vs
+*.dbmdl
+*.jfm
