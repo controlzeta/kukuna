@@ -2,7 +2,7 @@
 @model WebUI.Pages.MealPlans.IndexModel
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Crea uno nuevo</a>
 </p>
 <table class="table">
     <thead>
@@ -33,9 +33,9 @@
                     @Html.DisplayFor(modelItem => item.RecipeName)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.MealPlanId">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.MealPlanId">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.MealPlanId">Delete</a>
+                    <a asp-page="./Edit" asp-route-id="@item.MealPlanId">Editar</a> |
+                    <a asp-page="./Details" asp-route-id="@item.MealPlanId">Detalle</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.MealPlanId">Borrar</a>
                 </td>
             </tr>
         }
