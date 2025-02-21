@@ -1,0 +1,48 @@
+﻿@page
+@model WebUI.Pages.RecipeIngredients.IndexModel
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RecipeIngredient[0].Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecipeIngredient[0].IngredientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecipeIngredient[0].RecipeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecipeIngredient[0].UnitName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.RecipeIngredient) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IngredientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecipeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.RecipeIngredientId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.RecipeIngredientId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.RecipeIngredientId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

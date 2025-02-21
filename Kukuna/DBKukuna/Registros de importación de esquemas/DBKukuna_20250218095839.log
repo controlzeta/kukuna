@@ -1,0 +1,87 @@
+18/02/2025 03:58:39 p. m.	Este registro contiene información acerca de la operación de importación de esquema en el proyecto 'DBKukuna' del equipo 'TUF-DEV-LAPTOP' por el usuario 'fco55'.
+18/02/2025 03:58:39 p. m.	Se inició la importación del esquema de la base de datos.
+18/02/2025 03:58:43 p. m.	Recopilando credenciales de la base de datos
+18/02/2025 03:58:43 p. m.	Recopilando opciones de base de datos
+18/02/2025 03:58:43 p. m.	Recopilando la opción de configuración de ámbito de la base de datos genérica
+18/02/2025 03:58:43 p. m.	Recopilando usuarios
+18/02/2025 03:58:43 p. m.	Recopilando roles
+18/02/2025 03:58:43 p. m.	Recopilando roles de aplicación
+18/02/2025 03:58:43 p. m.	Recopilando pertenencias a roles
+18/02/2025 03:58:43 p. m.	Recopilando grupos de archivos
+18/02/2025 03:58:43 p. m.	Recopilando catálogos de texto completo
+18/02/2025 03:58:43 p. m.	Recopilando ensamblados
+18/02/2025 03:58:43 p. m.	Recopilando certificados
+18/02/2025 03:58:43 p. m.	Recopilando claves asimétricas
+18/02/2025 03:58:43 p. m.	Recopilando claves simétricas
+18/02/2025 03:58:43 p. m.	Recopilando claves simétricas cifradas
+18/02/2025 03:58:43 p. m.	Recopilando esquemas
+18/02/2025 03:58:43 p. m.	Recopilando colecciones de esquemas XML
+18/02/2025 03:58:43 p. m.	Recopilando tipos de datos definidos por el usuario
+18/02/2025 03:58:43 p. m.	Recopilando tipos definidos por el usuario
+18/02/2025 03:58:43 p. m.	Recopilando tipos de tabla
+18/02/2025 03:58:43 p. m.	Recopilando claves únicas para tipos de tabla
+18/02/2025 03:58:43 p. m.	Recopilando claves principales para tipos de tabla
+18/02/2025 03:58:43 p. m.	Recopilando índices para tipos de tablas
+18/02/2025 03:58:43 p. m.	Recopilando restricciones CHECK para tipos de tabla
+18/02/2025 03:58:43 p. m.	Recopilando restricciones DEFAULT para tipos de tabla
+18/02/2025 03:58:43 p. m.	Recopilando funciones de partición
+18/02/2025 03:58:43 p. m.	Recopilando esquemas de partición
+18/02/2025 03:58:43 p. m.	Recopilando funciones
+18/02/2025 03:58:43 p. m.	Recopilando funciones cifradas
+18/02/2025 03:58:43 p. m.	Recopilando agregados
+18/02/2025 03:58:43 p. m.	Recopilando procedimientos
+18/02/2025 03:58:43 p. m.	Recopilando procedimientos cifrados
+18/02/2025 03:58:43 p. m.	Recopilando tablas
+18/02/2025 03:58:43 p. m.	Recopilando claves principales
+18/02/2025 03:58:43 p. m.	Recopilando restricciones UNIQUE
+18/02/2025 03:58:43 p. m.	Recopilando claves externas
+18/02/2025 03:58:43 p. m.	Recopilando restricciones DEFAULT
+18/02/2025 03:58:43 p. m.	Recopilando restricciones CHECK
+18/02/2025 03:58:43 p. m.	Recopilando vistas
+18/02/2025 03:58:43 p. m.	Recopilando vistas cifradas
+18/02/2025 03:58:43 p. m.	Recopilando índices
+18/02/2025 03:58:43 p. m.	Recopilando estadísticas
+18/02/2025 03:58:43 p. m.	Recopilando listas de palabras irrelevantes de índices de texto completo
+18/02/2025 03:58:43 p. m.	Recopilando listas de propiedades de búsqueda
+18/02/2025 03:58:43 p. m.	Recopilando propiedades de búsqueda
+18/02/2025 03:58:43 p. m.	Recopilando índices de texto completo
+18/02/2025 03:58:43 p. m.	Recopilando índices de almacenamiento de columnas
+18/02/2025 03:58:43 p. m.	Recopilando índices espaciales
+18/02/2025 03:58:43 p. m.	Recopilando índices XML
+18/02/2025 03:58:43 p. m.	Recopilando índices XML selectivos
+18/02/2025 03:58:43 p. m.	Recopilando desencadenadores cifrados
+18/02/2025 03:58:43 p. m.	Recopilando desencadenadores
+18/02/2025 03:58:43 p. m.	Recopilando DDL triggers cifrados y de CLR
+18/02/2025 03:58:43 p. m.	Recopilando DDL triggers
+18/02/2025 03:58:43 p. m.	Creación de la restricción perimetral en curso
+18/02/2025 03:58:43 p. m.	Recopilando sinónimos
+18/02/2025 03:58:43 p. m.	Recopilando valores predeterminados
+18/02/2025 03:58:43 p. m.	Recopilando enlaces UDDT de restricción de datos
+18/02/2025 03:58:43 p. m.	Recopilando reglas
+18/02/2025 03:58:43 p. m.	Recopilando enlaces UDDT de restricción de datos
+18/02/2025 03:58:43 p. m.	Recopilando tipos de mensaje
+18/02/2025 03:58:43 p. m.	Recopilando colas
+18/02/2025 03:58:43 p. m.	Recopilando contratos
+18/02/2025 03:58:43 p. m.	Recopilando servicios
+18/02/2025 03:58:43 p. m.	Recopilando notificaciones de eventos
+18/02/2025 03:58:43 p. m.	Recopilando enlaces de servicio remoto
+18/02/2025 03:58:43 p. m.	Recopilando prioridades de Broker
+18/02/2025 03:58:43 p. m.	Recopilando firmas
+18/02/2025 03:58:43 p. m.	Recopilando opciones de compresión
+18/02/2025 03:58:43 p. m.	Recopilando tipos de secuencia
+18/02/2025 03:58:43 p. m.	Recopilando directivas de seguridad
+18/02/2025 03:58:43 p. m.	Recopilar claves de cifrado de columna
+18/02/2025 03:58:43 p. m.	Recopilando claves maestras de columna
+18/02/2025 03:58:43 p. m.	Recopilando orígenes de datos externos
+18/02/2025 03:58:43 p. m.	Recopilando formatos de archivo externos
+18/02/2025 03:58:43 p. m.	Recopilando tablas externas
+18/02/2025 03:58:43 p. m.	Recopilando propiedades extendidas
+18/02/2025 03:58:43 p. m.	Recopilando ensamblados
+18/02/2025 03:58:43 p. m.	Recopilando credenciales
+18/02/2025 03:58:43 p. m.	Recopilando inicios de sesión
+18/02/2025 03:58:43 p. m.	Recopilando auditorías de servidor
+18/02/2025 03:58:44 p. m.	Buscando elementos duplicados en el proyecto
+18/02/2025 03:58:44 p. m.	Ha finalizado el procesamiento de los elementos duplicados
+18/02/2025 03:58:44 p. m.	Finalizó la importación de la base de datos.
+18/02/2025 03:58:44 p. m.	Se guardó un resumen de la importación en la siguiente ubicación: C:\Users\fco55\source\repos\kukuna\Kukuna\DBKukuna\Registros de importación de esquemas\DBKukuna_20250218095839.log
+18/02/2025 03:58:44 p. m.	Haga clic en Finalizar para continuar...

@@ -1,0 +1,50 @@
+﻿@page 
+@model IndexModel
+@{
+    ViewData["Title"] = "Ingredientes";
+}
+<script src="~/js/ingredients.js" asp-append-version="true"></script>
+<div class="text-center">
+    <h1 class="display-4">Bienvenido a Kukuna</h1>
+    @* @Html.DropDownListFor(m => m.ingridientId, Model.ingredients, "Ingredientes")
+    <input type="text" placeholder="Ingrediente" />
+    <input type="text" placeholder="Categoría" />
+    @Html.DisplayFor(model => model.ingredient.IngredientId)
+    @Html.DisplayFor(model => model.ingredient.IngredientName)
+    @Html.DisplayFor(model => model.ingredient.Category) *@
+
+    @* <form method="post">
+        Name:
+        <input asp-for="ingredient.IngredientName" />
+        <input asp-for="ingredient.Category" />
+        <input type="submit" />
+    </form> *@
+
+    @* <button>Nuevo</button>
+    <button>Guardar</button> *@
+    @* <div>
+        <table>
+            <thead>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th></th>
+            <th></th>
+            </thead>
+            @foreach (var ingredient in Model.lstIngredients)
+            {
+                <tr>
+                    <td>@ingredient.IngredientId</td>
+                    <td>@ingredient.IngredientName</td>
+                    <td>@ingredient.Category</td>
+                    <td>
+                        <a asp-page="/Edit" asp-route-id="@ingredient.IngredientId">Editar</a>
+                    </td>
+                    <td>
+                        <a asp-page-handler="delete" asp-route-id="@ingredient.IngredientId">Borrar</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div> *@
+</div>

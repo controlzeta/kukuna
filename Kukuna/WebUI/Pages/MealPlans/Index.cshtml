@@ -1,0 +1,43 @@
+﻿@page
+@model WebUI.Pages.MealPlans.IndexModel
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MealPlan[0].DayOfWeek)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MealPlan[0].DayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MealPlan[0].RecipeName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.MealPlan)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DayOfWeek)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DayName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecipeName)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.MealPlanId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.MealPlanId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.MealPlanId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
