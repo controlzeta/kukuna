@@ -64,9 +64,9 @@ namespace AccesoDatos
 
         }
 
-        public RecipeIngredientDTO GetRecipeIngredientsDTOById(int id)
+        public List<RecipeIngredientDTO> GetRecipeIngredientsDTOById(int id)
         {
-            RecipeIngredientDTO res = new RecipeIngredientDTO();
+            List<RecipeIngredientDTO> res = new List<RecipeIngredientDTO>();
 
             using (var context = new SqlServerDbContext())
             {
@@ -74,7 +74,7 @@ namespace AccesoDatos
                        join i in context.Ingredients on ri.IngredientId equals i.IngredientId
                        join u in context.Units on ri.UnitId equals u.UnitId
                        join r in context.Recipes on ri.RecipeId equals r.RecipeId
-                       where ri.RecipeIngredientId == id
+                       where ri.RecipeId == id
                        select new RecipeIngredientDTO
                        {
                            RecipeIngredientId = ri.RecipeIngredientId,
@@ -86,11 +86,39 @@ namespace AccesoDatos
                            UnitName = u.UnitName,
                            Quantity = ri.Quantity
                        }
-                       ).FirstOrDefault();
+                       ).ToList();
                 return res;
             }
 
         }
+
+        //public RecipeIngredientDTO GetRecipeIngredientsDTOById(int id)
+        //{
+        //    RecipeIngredientDTO res = new RecipeIngredientDTO();
+
+        //    using (var context = new SqlServerDbContext())
+        //    {
+        //        res = (from ri in context.RecipeIngredients
+        //               join i in context.Ingredients on ri.IngredientId equals i.IngredientId
+        //               join u in context.Units on ri.UnitId equals u.UnitId
+        //               join r in context.Recipes on ri.RecipeId equals r.RecipeId
+        //               where ri.RecipeIngredientId == id
+        //               select new RecipeIngredientDTO
+        //               {
+        //                   RecipeIngredientId = ri.RecipeIngredientId,
+        //                   RecipeId = (int)ri.RecipeId,
+        //                   RecipeName = r.RecipeName,
+        //                   IngredientId = i.IngredientId,
+        //                   IngredientName = i.IngredientName,
+        //                   UnitId = (int)ri.UnitId,
+        //                   UnitName = u.UnitName,
+        //                   Quantity = ri.Quantity
+        //               }
+        //               ).FirstOrDefault();
+        //        return res;
+        //    }
+
+        //}
 
         public bool UpdateRecipeIngredients(int id, int? unitId, decimal? quantity)
         {

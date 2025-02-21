@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using AccesoDatos.Models;
 using AccesoDatos;
+using Microsoft.Data.SqlClient;
 
 namespace WebUI.Pages.Ingredients
 {
@@ -14,8 +15,7 @@ namespace WebUI.Pages.Ingredients
     {
 
         public IndexModel()
-        {
-        }
+        { }
 
         public IList<Ingredient> Ingredient { get;set; } = default!;
 

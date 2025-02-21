@@ -1,9 +1,15 @@
 ﻿@page
 @model WebUI.Pages.RecipeIngredients.IndexModel
-
+@{
+    ViewData["Title"] = "Ingredientes de la Receta ";
+}
 <p>
-    <a asp-page="Create">Create New</a>
-</p>
+    <a asp-page="Create">Crea uno nuevo</a>
+</p
+<div class="text-center">
+    <h1 class="display-4">@Model.RecipeName</h1>
+</div>
+<div class="col-md">
 <table class="table">
     <thead>
         <tr>
@@ -38,11 +44,12 @@
                 @Html.DisplayFor(modelItem => item.UnitName)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.RecipeIngredientId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.RecipeIngredientId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.RecipeIngredientId">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.RecipeIngredientId">Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.RecipeIngredientId">Detalle</a> |
+                <a asp-page="./Delete" asp-route-id="@item.RecipeIngredientId">Borrar</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+</div>

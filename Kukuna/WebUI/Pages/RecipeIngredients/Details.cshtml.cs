@@ -34,7 +34,7 @@ namespace WebUI.Pages.RecipeIngredients
             }
             else
             {
-                RecipeIngredient = recipeingredient;
+                RecipeIngredient = recipeingredient.FirstOrDefault();
             }
             return Page();
         }

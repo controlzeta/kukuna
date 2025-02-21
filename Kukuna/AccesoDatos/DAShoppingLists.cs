@@ -17,23 +17,6 @@ namespace AccesoDatos
             {
                 using (var context = new SqlServerDbContext())
                 {
-                    //return context.ShoppingLists.OrderBy(i => i.ShoppingListId).ToList();
-                    //return (from ri in context.RecipeIngredients
-                    // join i in context.Ingredients on ri.IngredientId equals i.IngredientId
-                    // join u in context.Units on ri.UnitId equals u.UnitId
-                    // join r in context.Recipes on ri.RecipeId equals r.RecipeId
-                    // join mp in context.MealPlans on ri.RecipeId equals mp.RecipeId
-                    // where mp.DayOfWeek > today
-                    // group new { i.IngredientName, i.IngredientId, ri.UnitId, u.UnitName } by v into g // Agrupación
-                    // select new ShoppingListDTO
-                    // {
-                    //     IngredientName = i.IngredientName,
-                    //     IngredientId = i.IngredientId,
-                    //     UnitId = ri.UnitId,
-                    //     UnitName = u.UnitName,
-                    //     TotalQuantity = ri.Quantity
-                    // }
-                    //).ToList();
                     return (from ri in context.RecipeIngredients
                             join i in context.Ingredients on ri.IngredientId equals i.IngredientId
                             join u in context.Units on ri.UnitId equals u.UnitId
