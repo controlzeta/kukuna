@@ -64,6 +64,15 @@ namespace AccesoDatos
 
         }
 
+        public RecipeIngredient GetRecipeIngredientsByIngredientIdAndRecipeId(int ingredientId, int recipeId)
+        {
+            using (var context = new SqlServerDbContext())
+            {
+                return context.RecipeIngredients.Where(m => m.IngredientId == ingredientId && m.RecipeId == recipeId).FirstOrDefault();
+            }
+
+        }
+
         public List<RecipeIngredientDTO> GetRecipeIngredientsDTOById(int id)
         {
             List<RecipeIngredientDTO> res = new List<RecipeIngredientDTO>();
@@ -173,7 +182,7 @@ namespace AccesoDatos
         {
             try
             {
-                if (GetRecipeIngredientsByIngredientId(ingredientId) == null)
+                if (GetRecipeIngredientsByIngredientIdAndRecipeId(ingredientId, recipeId) == null)
                 {
                     using (var context = new SqlServerDbContext())
                     {

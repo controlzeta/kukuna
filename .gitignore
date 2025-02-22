@@ -60,3 +60,6 @@ dkms.conf
 *.dbmdl
 *.jfm
 /Kukuna/DBKukuna/obj/Debug/Model.xml
+/Kukuna/WebUI/bin/Release/net8.0
+/Kukuna/AccesoDatos/bin/Release/net8.0
+/Kukuna/WebUI/Properties/PublishProfiles
