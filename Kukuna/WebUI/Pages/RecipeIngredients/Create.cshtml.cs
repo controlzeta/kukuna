@@ -46,7 +46,7 @@ namespace WebUI.Pages.RecipeIngredients
 
             proxy.InsertRecipeIngredient((int)RecipeIngredient.IngredientId, (int)RecipeIngredient.RecipeId, (int)RecipeIngredient.UnitId, RecipeIngredient.Quantity);
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index", new { id = RecipeIngredient.RecipeId });
         }
     }
 }
