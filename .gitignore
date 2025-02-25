@@ -63,3 +63,4 @@ dkms.conf
 /Kukuna/WebUI/bin/Release/net8.0
 /Kukuna/AccesoDatos/bin/Release/net8.0
 /Kukuna/WebUI/Properties/PublishProfiles
+/Kukuna/API/bin/Release/net8.0
