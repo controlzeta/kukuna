@@ -39,10 +39,10 @@
                     @Html.DisplayFor(modelItem => item.Servings)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.RecipeId">Editar</a> |
-                    <a asp-page="./Details" asp-route-id="@item.RecipeId">Detalle</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.RecipeId">Borrar</a> |
-                    <a asp-page="../RecipeIngredients/Index" asp-route-id="@item.RecipeId">Ingredientes</a>
+                    <a class="button" asp-page="./Edit" asp-route-id="@item.RecipeId">Editar</a> |
+                    <a class="button" asp-page="./Details" asp-route-id="@item.RecipeId">Detalle</a> |
+                    <a class="button" asp-page="./Delete" asp-route-id="@item.RecipeId">Borrar</a> |
+                    <a class="button" asp-page="../RecipeIngredients/Index" asp-route-id="@item.RecipeId">Ingredientes</a>
                 </td>
             </tr>
         }

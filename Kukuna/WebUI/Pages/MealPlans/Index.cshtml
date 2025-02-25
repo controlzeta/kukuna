@@ -32,12 +32,12 @@
                     @Html.DisplayFor(modelItem => item.DayName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.RecipeName)
+                    <a asp-page="../Recipes/Details" asp-route-id="@item.RecipeId">@Html.DisplayFor(modelItem => item.RecipeName)</a>
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.MealPlanId">Editar</a> |
-                    <a asp-page="./Details" asp-route-id="@item.MealPlanId">Detalle</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.MealPlanId">Borrar</a>
+                    <a class="button" asp-page="./Edit" asp-route-id="@item.MealPlanId">Editar</a> |
+                    <a class="button" asp-page="./Details" asp-route-id="@item.MealPlanId">Detalle</a> |
+                    <a class="button" asp-page="./Delete" asp-route-id="@item.MealPlanId">Borrar</a>
                 </td>
             </tr>
         }
