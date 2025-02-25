@@ -4,11 +4,12 @@
     ViewData["Title"] = "Lista de Compra";
 }
 <p>
-    <a asp-page="Create">Agregar Ingrediente</a>
+    <a class="btn btn-success" asp-page="Create">Agregar Ingrediente</a>
 </p>
 <table class="table">
     <thead>
         <tr>
+            <th></th>
             <th>
                 @Html.DisplayNameFor(model => model.Ingredient[0].IngredientName)
             </th>
@@ -32,9 +33,9 @@
                     @Html.DisplayFor(modelItem => item.Category)
                 </td>
                 <td>
-                    <a class="button" asp-page="./Edit" asp-route-id="@item.IngredientId">Editar</a> |
-                    <a class="button" asp-page="./Details" asp-route-id="@item.IngredientId">Detalle</a> |
-                    <a class="button" asp-page="./Delete" asp-route-id="@item.IngredientId">Borrar</a>
+                    <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.IngredientId">Editar</a> |
+                    <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.IngredientId">Detalle</a> |
+                    <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.IngredientId">Borrar</a>
                 </td>
             </tr>
         }

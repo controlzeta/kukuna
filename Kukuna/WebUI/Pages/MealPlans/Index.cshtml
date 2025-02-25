@@ -4,7 +4,7 @@
     ViewData["Title"] = "Comidas";
 }
 <p>
-    <a asp-page="Create">Crear uno Nuevo</a>
+    <a class="btn btn-success" asp-page="Create">Crear uno Nuevo</a>
 </p>
 <table class="table">
     <thead>
@@ -35,9 +35,9 @@
                     <a asp-page="../Recipes/Details" asp-route-id="@item.RecipeId">@Html.DisplayFor(modelItem => item.RecipeName)</a>
                 </td>
                 <td>
-                    <a class="button" asp-page="./Edit" asp-route-id="@item.MealPlanId">Editar</a> |
-                    <a class="button" asp-page="./Details" asp-route-id="@item.MealPlanId">Detalle</a> |
-                    <a class="button" asp-page="./Delete" asp-route-id="@item.MealPlanId">Borrar</a>
+                    <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.MealPlanId">Editar</a> |
+                    <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.MealPlanId">Detalle</a> |
+                    <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.MealPlanId">Borrar</a>
                 </td>
             </tr>
         }
