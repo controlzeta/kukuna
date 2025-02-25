@@ -32,9 +32,9 @@
                     @Html.DisplayFor(modelItem => item.Category)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.IngredientId">Editar</a> |
-                    <a asp-page="./Details" asp-route-id="@item.IngredientId">Detalle</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.IngredientId">Borrar</a>
+                    <a class="button" asp-page="./Edit" asp-route-id="@item.IngredientId">Editar</a> |
+                    <a class="button" asp-page="./Details" asp-route-id="@item.IngredientId">Detalle</a> |
+                    <a class="button" asp-page="./Delete" asp-route-id="@item.IngredientId">Borrar</a>
                 </td>
             </tr>
         }

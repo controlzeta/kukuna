@@ -12,12 +12,13 @@ namespace AccesoDatos
     {
         public List<ShoppingListDTO> GetShoppingLists()
         {
+            List<ShoppingListDTO> res = new List<ShoppingListDTO>();
             DateOnly today = new DateOnly();
             try
             {
                 using (var context = new SqlServerDbContext())
                 {
-                    return (from ri in context.RecipeIngredients
+                    res = (from ri in context.RecipeIngredients
                             join i in context.Ingredients on ri.IngredientId equals i.IngredientId
                             join u in context.Units on ri.UnitId equals u.UnitId
                             join r in context.Recipes on ri.RecipeId equals r.RecipeId
@@ -40,6 +41,9 @@ namespace AccesoDatos
                                 UnitName = g.Key.UnitName,
                                 TotalQuantity = g.Sum(x => x.QuantityParaSumar) // <-- Ahora x tiene la propiedad QuantityParaSumar
                             }).ToList();
+
+                    res = res.OrderBy(m => m.IngredientId).ToList();
+                    return res;
 
                 }
             }

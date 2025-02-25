@@ -20,3 +20,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.button {
+    padding:1.2em;
+    margin: 0px 2px;
+}

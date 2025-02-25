@@ -44,9 +44,9 @@
                 @Html.DisplayFor(modelItem => item.UnitName)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.RecipeIngredientId">Editar</a> |
-                <a asp-page="./Details" asp-route-id="@item.RecipeIngredientId">Detalle</a> |
-                <a asp-page="./Delete" asp-route-id="@item.RecipeIngredientId">Borrar</a>
+                <a class="button" asp-page="./Edit" asp-route-id="@item.RecipeIngredientId">Editar</a> |
+                <a class="button" asp-page="./Details" asp-route-id="@item.RecipeIngredientId">Detalle</a> |
+                <a class="button" asp-page="./Delete" asp-route-id="@item.RecipeIngredientId">Borrar</a>
             </td>
         </tr>
 }
