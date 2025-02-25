@@ -3,53 +3,55 @@
 @{
     ViewData["Title"] = "Ingredientes de la Receta ";
 }
+<div class="container">
 <p>
-    <a asp-page="Create">Crea uno nuevo</a>
+    <a class="btn btn-success" asp-page="Create">Crea uno nuevo</a>
 </p
 <div class="text-center">
     <h1 class="display-4">@Model.RecipeName</h1>
 </div>
 <div class="col-md">
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.RecipeIngredient[0].Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RecipeIngredient[0].IngredientName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RecipeIngredient[0].RecipeName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RecipeIngredient[0].UnitName)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.RecipeIngredient) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IngredientName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecipeName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UnitName)
-            </td>
-            <td>
-                <a class="button" asp-page="./Edit" asp-route-id="@item.RecipeIngredientId">Editar</a> |
-                <a class="button" asp-page="./Details" asp-route-id="@item.RecipeIngredientId">Detalle</a> |
-                <a class="button" asp-page="./Delete" asp-route-id="@item.RecipeIngredientId">Borrar</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RecipeIngredient[0].Quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RecipeIngredient[0].IngredientName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RecipeIngredient[0].RecipeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RecipeIngredient[0].UnitName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model.RecipeIngredient) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IngredientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecipeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitName)
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.RecipeIngredientId">Editar</a> |
+                    <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.RecipeIngredientId">Detalle</a> |
+                    <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.RecipeIngredientId">Borrar</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+</div>
 </div>
