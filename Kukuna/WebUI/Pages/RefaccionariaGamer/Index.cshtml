@@ -1,10 +1,44 @@
 ﻿@page
+@{
+    Layout = null;
+}
 @model WebUI.Pages.RefaccionariaGamer.IndexModel
 @{
 }
-<h1>Redirigiendote al nuevo sitio</h1>
-<script>
-    setTimeout(function () {
-        window.location.href = "https://www.refaccionariagamer.com";
-    }, 5000); // 5000 milisegundos = 5 segundos
-</script>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Refaccionaria Gamer</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebUI.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <h1 style="
+                padding-top: 35%;
+                padding-bottom: 35%;
+                text-align: center;" >
+                Redirigiendote al nuevo sitio
+            </h1>
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted align-content-center">
+        <div class="container" style="text-align:center;">
+            &copy; @DateTime.Now.Year - Control Zeta 
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        setTimeout(function () {
+            window.location.href = "https://www.refaccionariagamer.com";
+        }, 5000); // 5000 milisegundos = 5 segundos
+    </script>
+</body>
+</html>
