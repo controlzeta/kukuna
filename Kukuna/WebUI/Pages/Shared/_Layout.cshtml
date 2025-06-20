@@ -3,16 +3,58 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Kukuna</title>
+    <title>@ViewData["Title"] - Control Zeta Desarrollo Web</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebUI.styles.css" asp-append-version="true" />
+    
+    <meta name="description" content="Somos Control Zeta, una cooperativa de desarrolladores senior. Creamos soluciones robustas y eficientes para PyMEs con tecnología .NET, Angular y SQL Server.">
+    <meta name="keywords" content="desarrollo de software pymes, programadores .net mexico, desarrolladores c#, empresa de software a la medida, angular developers mexico, sql server, cooperativa de tecnologia, control zeta">
+    <meta name="author" content="Control Zeta">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Desarrollo de Software a Medida para PyMEs | Control Zeta">
+    <meta property="og:description" content="Creamos soluciones robustas con .NET, Angular y SQL Server para optimizar los procesos de tu negocio.">
+    <meta property="og:image" content="https://www.controlzeta.com.mx/ruta/a/tu/imagen-hero.jpg">
+    <meta property="og:url" content="https://www.controlzeta.com.mx/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Desarrollo de Software a Medida para PyMEs | Control Zeta">
+    <meta name="twitter:description" content="Cooperativa de desarrolladores experta en .NET y Angular. Transformamos digitalmente a las PyMEs en México.">
+    <meta name="twitter:image" content="https://www.controlzeta.com.mx/ruta/a/tu/imagen-hero.jpg">
+
+    <link rel="canonical" href="https://www.controlzeta.com.mx/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        .hero-section {
+            background: url('/img/hero-background.jpg') no-repeat center center; /*! CAMBIAR RUTA !*/
+            background-size: cover;
+            color: white;
+            padding: 120px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .card-case-study {
+            border: none;
+            transition: transform .2s;
+        }
+
+            .card-case-study:hover {
+                transform: translateY(-10px);
+            }
+    </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Kukuna</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Control Zeta</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,19 +62,38 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Ingredients/Index">Ingredientes</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/ShoppingLists/Index">Servicios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Recipes/Index">Recetas</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/ShoppingLists/Index">Casos de Éxito</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/RecipeIngredients/Index">Ingredientes de la Receta</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/ShoppingLists/Index">Nosotros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/MealPlans/Index">Comidas</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/ShoppingLists/Index">Contacto</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/ShoppingLists/Index">Lista de Compra</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdownRecetas" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Kukuna
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownRecetas">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Ingredients/Index">Ingredientes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Recipes/Index">Recetas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/RecipeIngredients/Index">Ingredientes de la Receta</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/MealPlans/Index">Comidas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/ShoppingLists/Index">Lista de Compra</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -47,7 +108,7 @@
 
     <footer class="border-top footer text-muted align-content-center">
         <div class="container">
-            &copy; @DateTime.Now.Year - Kukuna - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; @DateTime.Now.Year - Control Zeta - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 

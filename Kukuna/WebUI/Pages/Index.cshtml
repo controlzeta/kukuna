@@ -5,46 +5,226 @@
 }
 <script src="~/js/ingredients.js" asp-append-version="true"></script>
 <div class="text-center">
-    <h1 class="display-4">Bienvenido a Kukuna</h1>
-    @* @Html.DropDownListFor(m => m.ingridientId, Model.ingredients, "Ingredientes")
-    <input type="text" placeholder="Ingrediente" />
-    <input type="text" placeholder="Categoría" />
-    @Html.DisplayFor(model => model.ingredient.IngredientId)
-    @Html.DisplayFor(model => model.ingredient.IngredientName)
-    @Html.DisplayFor(model => model.ingredient.Category) *@
+    <h1 class="display-4">Enfocado en el beneficio, no en la tecnología.</h1>
+    <h2 class="display-4">Convertimos tus Desafíos Operativos en Ventajas Competitivas</h2>
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Desarrollo de Software a la Medida para PyMEs en México</h1>
+            <p class="lead my-4">Creamos soluciones robustas y escalables con .NET, Angular y SQL Server para optimizar tus procesos y acelerar tu crecimiento.</p>
+            <a href="#servicios" class="btn btn-lg btn-light">Ver Nuestros Servicios</a>
+        </div>
+    </header>
 
-    @* <form method="post">
-        Name:
-        <input asp-for="ingredient.IngredientName" />
-        <input asp-for="ingredient.Category" />
-        <input type="submit" />
-    </form> *@
+    <main>
+        <section id="propuesta-valor" class="section-padding bg-white">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">Tu Socio Tecnológico para la Transformación Digital</h2>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4 mb-4">
+                        <div class="mb-3"><i class="bi bi-gear-wide-connected fs-1 text-primary"></i></div>
+                        <h4 class="fw-bold">Soluciones a la Medida</h4>
+                        <p>Desarrollamos software que se adapta a tus necesidades, no al revés. Olvídate de las soluciones genéricas.</p>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="mb-3"><i class="bi bi-shield-check fs-1 text-primary"></i></div>
+                        <h4 class="fw-bold">Tecnología de Vanguardia</h4>
+                        <p>Usamos un stack tecnológico probado y potente (C#, .NET Core, Angular) para garantizar rendimiento y seguridad.</p>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="mb-3"><i class="bi bi-people-fill fs-1 text-primary"></i></div>
+                        <h4 class="fw-bold">Modelo Cooperativo, Beneficio Directo</h4>
+                        <p>Trabaja directamente con los desarrolladores. Sin intermediarios, con total transparencia y a un costo competitivo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    @* <button>Nuevo</button>
-    <button>Guardar</button> *@
-    @* <div>
-        <table>
-            <thead>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Categoría</th>
-            <th></th>
-            <th></th>
-            </thead>
-            @foreach (var ingredient in Model.lstIngredients)
-            {
-                <tr>
-                    <td>@ingredient.IngredientId</td>
-                    <td>@ingredient.IngredientName</td>
-                    <td>@ingredient.Category</td>
-                    <td>
-                        <a asp-page="/Edit" asp-route-id="@ingredient.IngredientId">Editar</a>
-                    </td>
-                    <td>
-                        <a asp-page-handler="delete" asp-route-id="@ingredient.IngredientId">Borrar</a>
-                    </td>
-                </tr>
-            }
-        </table>
-    </div> *@
+        <section id="servicios" class="section-padding bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">Nuestros Servicios de Desarrollo</h2>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="accordion" id="accordionServicios">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="bi bi-window-desktop me-2"></i><strong>Desarrollo de Aplicaciones Web</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionServicios">
+                                    <div class="accordion-body">
+                                        Creamos desde sistemas de gestión interna (ERPs, CRMs) hasta plataformas web complejas para tus clientes. Usamos Angular para interfaces rápidas y amigables.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <i class="bi bi-arrow-repeat me-2"></i><strong>Modernización de Sistemas (Legacy)</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionServicios">
+                                    <div class="accordion-body">
+                                        ¿Tu software actual es lento y obsoleto? Migramos y modernizamos tus sistemas a .NET Core para mejorar su eficiencia y seguridad.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <i class="bi bi-hdd-stack me-2"></i><strong>APIs e Integraciones</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionServicios">
+                                    <div class="accordion-body">
+                                        Conectamos tus sistemas. Desarrollamos APIs robustas para que tus aplicaciones se comuniquen entre sí, automatizando flujos de trabajo.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        <i class="bi bi-bar-chart-line me-2"></i><strong>Bases de Datos y Business Intelligence</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionServicios">
+                                    <div class="accordion-body">
+                                        Diseñamos y optimizamos bases de datos con SQL Server. Extraemos valor de tu información para que tomes mejores decisiones.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="casos-exito" class="section-padding bg-white">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">Impulsando el Éxito de PyMEs como la Tuya</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card card-case-study shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Optimización de Inventario para Empresa de Logística</h5>
+                                <p class="card-text">Desarrollamos un sistema web con .NET Core y Angular que redujo en un 30% las pérdidas de inventario y optimizó los tiempos de entrega.</p>
+                                <a href="#" class="btn btn-outline-primary">Leer Caso Completo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card card-case-study shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Plataforma de Reportes para Sector Financiero</h5>
+                                <p class="card-text">Implementamos un dashboard con SQL Server y Angular que centralizó la información, generando reportes en tiempo real y mejorando la toma de decisiones.</p>
+                                <a href="#" class="btn btn-outline-primary">Leer Caso Completo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card card-case-study shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">CRM a la Medida para Negocio Retail</h5>
+                                <p class="card-text">Creamos una solución CRM desde cero para gestionar clientes y ventas, aumentando la retención de clientes en un 25% el primer año.</p>
+                                <a href="#" class="btn btn-outline-primary">Leer Caso Completo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="nosotros" class="section-padding bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="fw-bold">Somos una Cooperativa de Desarrolladores Apasionados</h2>
+                        <p class="lead">Control Zeta no es una empresa tradicional. Somos un colectivo de expertos en tecnología unidos por la pasión de crear software que realmente funciona. Creemos en el código limpio, la colaboración y el éxito de nuestros clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="section-padding bg-primary text-white">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">¿Listo para llevar tu negocio al siguiente nivel?</h2>
+                    <p class="lead">Hablemos de tu proyecto. La primera consultoría es sin costo.</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <form action="#" method="POST">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">¿Cómo podemos ayudarte?</label>
+                                <textarea class="form-control" id="message" rows="4" required></textarea>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-light btn-lg">Enviar Mensaje</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-start">
+            <div class="row">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold">Control Zeta</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+                    <p>Desarrollo de software a la medida para PyMEs. Transformamos tus ideas en soluciones tecnológicas robustas y escalables.</p>
+                </div>
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold">Servicios</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+                    <p><a href="#servicios" class="text-white text-decoration-none">Aplicaciones Web</a></p>
+                    <p><a href="#servicios" class="text-white text-decoration-none">Modernización</a></p>
+                    <p><a href="#servicios" class="text-white text-decoration-none">APIs</a></p>
+                    <p><a href="#servicios" class="text-white text-decoration-none">Bases de Datos</a></p>
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold">Enlaces</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+                    <p><a href="#casos-exito" class="text-white text-decoration-none">Casos de Éxito</a></p>
+                    <p><a href="#nosotros" class="text-white text-decoration-none">Nosotros</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Política de Privacidad</a></p>
+                    <p><a href="#contacto" class="text-white text-decoration-none">Contacto</a></p>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase fw-bold">Contacto</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+                    <p><i class="bi bi-geo-alt-fill me-2"></i>Puebla, Puebla, México</p>
+                    <p><i class="bi bi-envelope-fill me-2"></i>email@controlzeta.com.mx</p>
+                    <p><i class="bi bi-telephone-fill me-2"></i>+52 222 123 4567</p>
+                </div>
+            </div>
+            <div class="text-center pt-4 border-top border-secondary">
+                <p>
+                    © 2025 Copyright:
+                    <a class="text-white fw-bold" href="https://controlzeta.com.mx/">Control Zeta</a> |
+                    <a href="#" class="text-white me-4"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="text-white me-4"><i class="bi bi-github"></i></a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
 </div>
