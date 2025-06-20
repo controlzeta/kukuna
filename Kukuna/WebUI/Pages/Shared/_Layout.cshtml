@@ -100,18 +100,53 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted align-content-center">
-        <div class="container">
-            &copy; @DateTime.Now.Year - Control Zeta - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-start">
+            <div class="row">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold">Control Zeta</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+                    <p>Desarrollo de software a la medida para PyMEs. Transformamos tus ideas en soluciones tecnológicas robustas y escalables.</p>
+                </div>
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold">Servicios</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+                    <p><a href="#servicios" class="text-white text-decoration-none">Aplicaciones Web</a></p>
+                    <p><a href="#servicios" class="text-white text-decoration-none">Modernización</a></p>
+                    <p><a href="#servicios" class="text-white text-decoration-none">APIs</a></p>
+                    <p><a href="#servicios" class="text-white text-decoration-none">Bases de Datos</a></p>
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold">Enlaces</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+                    <p><a href="#casos-exito" class="text-white text-decoration-none">Casos de Éxito</a></p>
+                    <p><a href="#nosotros" class="text-white text-decoration-none">Nosotros</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Política de Privacidad</a></p>
+                    <p><a href="#contacto" class="text-white text-decoration-none">Contacto</a></p>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase fw-bold">Contacto</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+                    <p><i class="bi bi-geo-alt-fill me-2"></i>Puebla, Puebla, México</p>
+                    <p><i class="bi bi-envelope-fill me-2"></i>email@controlzeta.com.mx</p>
+                    <p><i class="bi bi-telephone-fill me-2"></i>+52 222 123 4567</p>
+                </div>
+            </div>
+            <div class="text-center pt-4 border-top border-secondary">
+                <p>
+                    © 2025 Copyright:
+                    <a class="text-white fw-bold" href="https://controlzeta.com.mx/">Control Zeta</a> |
+                    <a href="#" class="text-white me-4"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="text-white me-4"><i class="bi bi-github"></i></a>
+                </p>
+            </div>
         </div>
     </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
