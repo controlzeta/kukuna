@@ -1,0 +1,75 @@
+﻿@page
+@{
+    ViewData["Title"] = "Servicios";
+}
+    <section id="servicios" class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Nuestros Servicios de Desarrollo</h2>
+                <p class="lead">Soluciones tecnológicas diseñadas para la eficiencia y el crecimiento de tu PyME.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="accordion" id="accordionServicios">
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingWebApp">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWebApp" aria-expanded="true" aria-controls="collapseWebApp">
+                                    <i class="bi bi-window-desktop fs-5 me-3"></i>
+                                    <strong>Aplicaciones Web a la Medida</strong>
+                                </button>
+                            </h2>
+                            <div id="collapseWebApp" class="accordion-collapse collapse show" aria-labelledby="headingWebApp" data-bs-parent="#accordionServicios">
+                                <div class="accordion-body">
+                                    <p>Creamos desde sistemas de gestión interna (ERPs, CRMs) y portales de clientes hasta plataformas web complejas. Utilizamos tecnologías modernas como <strong>Angular</strong> para construir interfaces de usuario rápidas, interactivas y amigables, garantizando una experiencia de usuario excepcional en cualquier dispositivo.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingModernizacion">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseModernizacion" aria-expanded="false" aria-controls="collapseModernizacion">
+                                    <i class="bi bi-arrow-repeat fs-5 me-3"></i>
+                                    <strong>Modernización y Automatización de Sistemas</strong>
+                                </button>
+                            </h2>
+                            <div id="collapseModernizacion" class="accordion-collapse collapse" aria-labelledby="headingModernizacion" data-bs-parent="#accordionServicios">
+                                <div class="accordion-body">
+                                    <p>¿Tu software actual es lento, inseguro u obsoleto? Digitalizamos y automatizamos tus procesos manuales. Migramos tus sistemas legacy a plataformas modernas como <strong>.NET Core</strong> para mejorar radicalmente su eficiencia, seguridad y escalabilidad, preparando tu negocio para el futuro.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingApi">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseApi" aria-expanded="false" aria-controls="collapseApi">
+                                    <i class="bi bi-hdd-stack fs-5 me-3"></i>
+                                    <strong>Desarrollo de APIs e Integraciones</strong>
+                                </button>
+                            </h2>
+                            <div id="collapseApi" class="accordion-collapse collapse" aria-labelledby="headingApi" data-bs-parent="#accordionServicios">
+                                <div class="accordion-body">
+                                    <p>Conectamos tus sistemas para que trabajen juntos. Desarrollamos APIs robustas y seguras que permiten que tus aplicaciones (internas y externas) se comuniquen entre sí, automatizando flujos de trabajo, eliminando la doble captura de datos y centralizando tu operación.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingDb">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDb" aria-expanded="false" aria-controls="collapseDb">
+                                    <i class="bi bi-bar-chart-line fs-5 me-3"></i>
+                                    <strong>Bases de Datos y Business Intelligence</strong>
+                                </button>
+                            </h2>
+                            <div id="collapseDb" class="accordion-collapse collapse" aria-labelledby="headingDb" data-bs-parent="#accordionServicios">
+                                <div class="accordion-body">
+                                    <p>Tus datos son tu activo más valioso. Diseñamos, optimizamos y administramos bases de datos de alto rendimiento con <strong>SQL Server</strong>. Transformamos datos crudos en información útil, creando dashboards e informes que te permiten visualizar KPIs y tomar decisiones estratégicas basadas en evidencia.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

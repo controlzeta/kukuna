@@ -10,10 +10,13 @@ namespace API.Controllers
     public class CatalogController : ControllerBase
     {
         private readonly ILogger<CatalogController> _logger;
+        private readonly DAShoppingLists _shoppingListsProxy;
 
-        public CatalogController(ILogger<CatalogController> logger)
+
+        public CatalogController(ILogger<CatalogController> logger, DAShoppingLists shoppingListsProxy)
         {
             _logger = logger;
+            _shoppingListsProxy = shoppingListsProxy;
         }
 
         [HttpGet]
@@ -56,9 +59,7 @@ namespace API.Controllers
         [Route("GetShoppingLists")]
         public IEnumerable<ShoppingListDTO> GetShoppingLists()
         {
-            DAShoppingLists proxy = new DAShoppingLists();
-
-            return proxy.GetShoppingLists();
+            return (IEnumerable<ShoppingListDTO>)_shoppingListsProxy.GetShoppingListsAsync();
         }
 
         [HttpGet]

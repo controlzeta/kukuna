@@ -1,26 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using AccesoDatos.Models;
-using AccesoDatos;
+﻿using AccesoDatos;
 using AccesoDatos.Entities;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WebUI.Pages.ShoppingLists
 {
     public class IndexModel : PageModel
     {
-        DAShoppingLists proxy = new DAShoppingLists();
+        private readonly DAShoppingLists _shoppingListsProxy;
 
+        public IndexModel(DAShoppingLists shoppingListsProxy)
+        {
+            _shoppingListsProxy = shoppingListsProxy;
+        }
 
-        public IList<ShoppingListDTO> ShoppingList { get;set; } = default!;
+        public IList<ShoppingListDTO> ShoppingList { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            ShoppingList = proxy.GetShoppingLists();
+            ShoppingList = await _shoppingListsProxy.GetShoppingListsAsync();
         }
     }
 }

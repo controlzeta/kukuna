@@ -1,28 +1,33 @@
-﻿using AccesoDatos.Entities;
+﻿﻿using AccesoDatos.Entities;
 using AccesoDatos.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace AccesoDatos
 {
     public class DAShoppingLists
     {
-        public List<ShoppingListDTO> GetShoppingLists()
+        private readonly SqlServerDbContext _context;
+
+        public DAShoppingLists(SqlServerDbContext context)
         {
-            List<ShoppingListDTO> res = new List<ShoppingListDTO>();
-            DateOnly today = new DateOnly();
+            _context = context;
+        }
+
+        public async Task<List<ShoppingListDTO>> GetShoppingListsAsync()
+        {
+            DateOnly today = DateOnly.FromDateTime(DateTime.Now);
             try
             {
-                using (var context = new SqlServerDbContext())
-                {
-                    res = (from ri in context.RecipeIngredients
-                            join i in context.Ingredients on ri.IngredientId equals i.IngredientId
-                            join u in context.Units on ri.UnitId equals u.UnitId
-                            join r in context.Recipes on ri.RecipeId equals r.RecipeId
-                            join mp in context.MealPlans on ri.RecipeId equals mp.RecipeId
+                var res = await (from ri in _context.RecipeIngredients
+                            join i in _context.Ingredients on ri.IngredientId equals i.IngredientId
+                            join u in _context.Units on ri.UnitId equals u.UnitId
+                            join r in _context.Recipes on ri.RecipeId equals r.RecipeId
+                            join mp in _context.MealPlans on ri.RecipeId equals mp.RecipeId
                             where mp.DayOfWeek > today
                             select new // <-- Proyectamos un nuevo objeto anónimo
                             {
@@ -40,31 +45,28 @@ namespace AccesoDatos
                                 UnitId = g.Key.UnitId,
                                 UnitName = g.Key.UnitName,
                                 TotalQuantity = g.Sum(x => x.QuantityParaSumar) // <-- Ahora x tiene la propiedad QuantityParaSumar
-                            }).ToList();
-
-                    res = res.OrderBy(m => m.IngredientId).ToList();
-                    return res;
-
-                }
+                            })
+                            .OrderBy(m => m.IngredientId) // Optimización: Ordenar en SQL antes de traer a memoria
+                            .ToListAsync();
+                return res;
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw; // Corrección: 'throw ex' borra el stack trace original. 'throw' lo mantiene.
             }
         }
 
-        public ShoppingList GetShoppingLists(int id)
+        public async Task<ShoppingList?> GetShoppingListsAsync(int id)
         {
             try
             {
-                using (var context = new SqlServerDbContext())
-                {
-                    return context.ShoppingLists.Where(i => i.ShoppingListId == id).FirstOrDefault();
-                }
+                // Optimización: AsNoTracking reduce overhead en lecturas y FirstOrDefault con predicado es más limpio
+                return await _context.ShoppingLists.AsNoTracking()
+                    .FirstOrDefaultAsync(i => i.ShoppingListId == id);
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw;
             }
         }
     }
