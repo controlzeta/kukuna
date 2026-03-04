@@ -12,8 +12,14 @@ namespace WebUI.Pages.MealPlans
 {
     public class DeleteModel : PageModel
     {
-        DAMealPlans proxy = new DAMealPlans();
+        private readonly SqlServerDbContext _context;
+        DAMealPlans proxy;
 
+        public DeleteModel(SqlServerDbContext context)
+        {
+            _context = context;
+            proxy = new DAMealPlans(_context);
+        }
 
         [BindProperty]
         public MealPlan MealPlan { get; set; } = default!;

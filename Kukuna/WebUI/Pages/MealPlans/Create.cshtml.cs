@@ -12,8 +12,17 @@ namespace WebUI.Pages.MealPlans
 {
     public class CreateModel : PageModel
     {
-        DAMealPlans proxy = new DAMealPlans();
-        DARecipes proxyRe = new DARecipes();
+        private readonly SqlServerDbContext _context;
+
+        DAMealPlans proxy;
+        DARecipes proxyRe;
+
+        public CreateModel(SqlServerDbContext context)
+        {
+            _context = context;
+            proxy = new DAMealPlans(_context);
+            proxyRe = new DARecipes(_context);
+        }
 
         public IActionResult OnGet()
         {

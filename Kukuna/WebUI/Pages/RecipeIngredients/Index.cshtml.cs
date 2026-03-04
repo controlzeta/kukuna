@@ -14,14 +14,19 @@ namespace WebUI.Pages.RecipeIngredients
 {
     public class IndexModel : PageModel
     {
-        DARecipeIngredients proxy = new DARecipeIngredients();
-        DAIngredients proxyIng = new DAIngredients();
+        private readonly SqlServerDbContext _context;
+        private readonly DAIngredients proxyIng;
+
+        DARecipeIngredients proxy;
         DAUnits proxyUn = new DAUnits();
-        DARecipes proxyRe = new DARecipes();
+        DARecipes proxyRe;
 
-        public IndexModel()
+        public IndexModel(SqlServerDbContext context)
         {
-
+            _context = context;
+            proxyIng = new DAIngredients(_context);
+            proxy = new DARecipeIngredients(_context);
+            proxyRe = new DARecipes(_context);
         }
 
         public IList<RecipeIngredientDTO> RecipeIngredient { get; set; } = default!;

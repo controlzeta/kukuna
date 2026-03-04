@@ -13,10 +13,13 @@ namespace WebUI.Pages.Recipes
 {
     public class IndexModel : PageModel
     {
-        DARecipes proxy = new DARecipes();
+        private readonly SqlServerDbContext _context;
+        DARecipes proxy;
 
-        public IndexModel()
+        public IndexModel(SqlServerDbContext context)
         {
+            _context = context;
+            proxy = new DARecipes(_context);
         }
 
         public IList<Recipe> Recipe { get;set; } = default!;

@@ -12,14 +12,17 @@ namespace AccesoDatos
 {
     public class DAMealPlans
     {
+        private readonly SqlServerDbContext _context;
+
+        public DAMealPlans(SqlServerDbContext context)
+        {
+            _context = context;
+        }
         public List<MealPlan> GetMealPlans()
         {
             try
             {
-                using (var context = new SqlServerDbContext())
-                {
-                    return context.MealPlans.OrderBy(i => i.DayOfWeek).ToList();
-                }
+                return _context.MealPlans.OrderBy(i => i.DayOfWeek).ToList();
             }
             catch (Exception ex)
             {
@@ -31,20 +34,16 @@ namespace AccesoDatos
         {
             try
             {
-                using (var context = new SqlServerDbContext())
-                {
-
-                    return (from ri in context.MealPlans
-                            join r in context.Recipes on ri.RecipeId equals r.RecipeId
-                            select new MealPlanDTO
-                            {
-                                MealPlanId = ri.MealPlanId,
-                                DayOfWeek = ri.DayOfWeek,
-                                RecipeId = (int)ri.RecipeId,
-                                RecipeName = r.RecipeName,
-                                DayName = ri.DayOfWeek.ToString("dddd", new CultureInfo("es-ES"))
-                            }).ToList();
-                }
+                return (from ri in _context.MealPlans
+                        join r in _context.Recipes on ri.RecipeId equals r.RecipeId
+                        select new MealPlanDTO
+                        {
+                            MealPlanId = ri.MealPlanId,
+                            DayOfWeek = ri.DayOfWeek,
+                            RecipeId = (int)ri.RecipeId,
+                            RecipeName = r.RecipeName,
+                            DayName = ri.DayOfWeek.ToString("dddd", new CultureInfo("es-ES"))
+                        }).ToList();
             }
             catch (Exception ex)
             {
@@ -56,13 +55,10 @@ namespace AccesoDatos
         {
             try
             {
-                using (var context = new SqlServerDbContext())
-                {
-                    return (from mp in context.MealPlans
-                            where mp.DayOfWeek >= lastDay
-                            select mp
-                        ).ToList();
-                }
+                return (from mp in _context.MealPlans
+                        where mp.DayOfWeek >= lastDay
+                        select mp
+                    ).ToList();
             }
             catch (Exception ex)
             {
@@ -76,7 +72,7 @@ namespace AccesoDatos
             {
                 using (var context = new SqlServerDbContext())
                 {
-                    return (from mp in context.MealPlans
+                    return (from mp in _context.MealPlans
                             where mp.MealPlanId == id
                             select mp
                         ).FirstOrDefault();
@@ -93,16 +89,13 @@ namespace AccesoDatos
             MealPlan i = GetMealPlansById(id);
             try
             {
-                using (var context = new SqlServerDbContext())
+                if (i != null)
                 {
-                    if (i != null)
-                    {
-                        i.DayOfWeek = dayOfWeek;
-                        i.RecipeId = recipeId;
-                        context.Entry(i).State = EntityState.Modified;
-                        context.SaveChanges();
-                        return true;
-                    }
+                    i.DayOfWeek = dayOfWeek;
+                    i.RecipeId = recipeId;
+                    _context.Entry(i).State = EntityState.Modified;
+                    _context.SaveChanges();
+                    return true;
                 }
             }
             catch (Exception ex)
@@ -117,14 +110,11 @@ namespace AccesoDatos
             MealPlan i = GetMealPlansById(id);
             try
             {
-                using (var context = new SqlServerDbContext())
+                if (i != null)
                 {
-                    if (i != null)
-                    {
-                        context.Entry(i).State = EntityState.Deleted;
-                        context.SaveChanges();
-                        return true;
-                    }
+                    _context.Entry(i).State = EntityState.Deleted;
+                    _context.SaveChanges();
+                    return true;
                 }
             }
             catch (Exception ex)
@@ -139,16 +129,13 @@ namespace AccesoDatos
         {
             try
             {
-                using (var context = new SqlServerDbContext())
+                _context.MealPlans.Add(new MealPlan
                 {
-                    context.MealPlans.Add(new MealPlan
-                    {
-                        DayOfWeek = dayOfWeek,
-                        RecipeId = recipeId
-                    });
-                    context.SaveChanges();
-                    return true;
-                }
+                    DayOfWeek = dayOfWeek,
+                    RecipeId = recipeId
+                });
+                _context.SaveChanges();
+                return true;
             }
             catch (Exception ex)
             {

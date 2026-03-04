@@ -1,5 +1,6 @@
 ﻿using AccesoDatos.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +11,17 @@ namespace AccesoDatos
 {
     public class DAIngredients
     {
+        private readonly SqlServerDbContext _context;
+
+        public DAIngredients(SqlServerDbContext context)
+        {
+            _context = context;
+        }
         public List<Ingredient> GetIngredients() 
         {
 			try
 			{
-				using (var context = new SqlServerDbContext())
-				{
-					return context.Ingredients.OrderBy(i => i.IngredientId).ToList();
-				}
+			    return _context.Ingredients.OrderBy(i => i.IngredientId).ToList();
 			}
             catch (Exception ex)
             {
@@ -29,10 +33,7 @@ namespace AccesoDatos
         {
             try
             {
-                using (var context = new SqlServerDbContext())
-                {
-                    return context.Ingredients.Where(m => m.IngredientId == id).FirstOrDefault();
-                }
+                return _context.Ingredients.Where(m => m.IngredientId == id).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -44,10 +45,7 @@ namespace AccesoDatos
         {
             try
             {
-                using (var context = new SqlServerDbContext())
-                {
-                    return context.Ingredients.Where(m => m.IngredientName == ingredientName).FirstOrDefault();
-                }
+                return _context.Ingredients.Where(m => m.IngredientName == ingredientName).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -60,16 +58,13 @@ namespace AccesoDatos
             Ingredient i = GetIngredientsById(id);
             try
             {
-                using (var context = new SqlServerDbContext())
+                if (i != null)
                 {
-                    if (i != null)
-                    {
-                        i.Category = category;
-                        i.IngredientName = ingredientName;
-                        context.Entry(i).State = EntityState.Modified;
-                        context.SaveChanges();
-                        return true;
-                    }
+                    i.Category = category;
+                    i.IngredientName = ingredientName;
+                    _context.Entry(i).State = EntityState.Modified;
+                    _context.SaveChanges();
+                    return true;
                 }
             }
             catch (Exception ex)
@@ -84,14 +79,11 @@ namespace AccesoDatos
             Ingredient i = GetIngredientsById(id);
             try
             {
-                using (var context = new SqlServerDbContext())
+                if (i != null)
                 {
-                    if (i != null)
-                    {
-                        context.Entry(i).State = EntityState.Deleted;
-                        context.SaveChanges();
-                        return true;
-                    }
+                    _context.Entry(i).State = EntityState.Deleted;
+                    _context.SaveChanges();
+                    return true;
                 }
             }
             catch (Exception ex)
@@ -108,16 +100,13 @@ namespace AccesoDatos
             {
                 if (GetIngredientsByName(ingredientName) == null)
                 {
-                    using (var context = new SqlServerDbContext())
+                    _context.Ingredients.Add(new Ingredient
                     {
-                        context.Ingredients.Add(new Ingredient
-                        {
-                            IngredientName = ingredientName,
-                            Category = category
-                        });
-                        context.SaveChanges();
-                        return true;
-                    }
+                        IngredientName = ingredientName,
+                        Category = category
+                    });
+                    _context.SaveChanges();
+                    return true;
                 }
             }
             catch (Exception ex)

@@ -13,11 +13,14 @@ namespace WebUI.Pages.Recipes
 {
     public class EditModel : PageModel
     {
-        DARecipes proxy = new DARecipes();
+        private readonly SqlServerDbContext _context;
+        DARecipes proxy;
 
-        public EditModel()
+        public EditModel(SqlServerDbContext context)
         {
-                
+            _context = context;
+            proxy = new DARecipes(_context);
+
         }
 
         [BindProperty]

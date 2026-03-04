@@ -13,10 +13,13 @@ namespace WebUI.Pages.Ingredients
 {
     public class EditModel : PageModel
     {
-        DAIngredients proxy = new DAIngredients();
+        private readonly SqlServerDbContext _context;
+        private readonly DAIngredients proxy;
 
-        public EditModel()
+        public EditModel(SqlServerDbContext context)
         {
+            _context = context;
+            proxy = new DAIngredients(_context);
         }
 
         [BindProperty]

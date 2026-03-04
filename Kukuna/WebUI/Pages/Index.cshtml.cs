@@ -13,7 +13,7 @@ namespace WebUI.Pages
         private readonly ILogger<IndexModel> _logger;
 
         private readonly IConfiguration _configuration;
-
+        private readonly SqlServerDbContext _context;
         public int ingridientId { get; set; }
         public List<SelectListItem> ingredients { get; set; }
         public List<Ingredient> lstIngredients { get; set; }
@@ -32,11 +32,12 @@ namespace WebUI.Pages
         //[BindProperty]
         //public Ingredient ingredient { get; set; }
 
-        public IndexModel(ILogger<IndexModel> logger, IConfiguration configuration)
+        public IndexModel(ILogger<IndexModel> logger, IConfiguration configuration, SqlServerDbContext context)
         {
             _configuration = configuration;
             _logger = logger;
-            proxy = new DAIngredients();
+            _context = context;
+            proxy = new DAIngredients(_context);
         }
 
         public async Task<IActionResult> OnPostSendEmail()

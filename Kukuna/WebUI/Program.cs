@@ -9,6 +9,11 @@ builder.Services.AddDbContext<SqlServerDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<AccesoDatos.DAShoppingLists>();
+builder.Services.AddScoped<AccesoDatos.DAMealPlans>();
+builder.Services.AddScoped<AccesoDatos.DAIngredients>();
+builder.Services.AddScoped<AccesoDatos.DARecipes>();
+builder.Services.AddScoped<AccesoDatos.DAUnits>();
+builder.Services.AddScoped<AccesoDatos.DARecipeIngredients>();
 
 var app = builder.Build();
 

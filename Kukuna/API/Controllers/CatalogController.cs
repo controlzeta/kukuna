@@ -11,19 +11,20 @@ namespace API.Controllers
     {
         private readonly ILogger<CatalogController> _logger;
         private readonly DAShoppingLists _shoppingListsProxy;
+        private readonly SqlServerDbContext _context;
 
-
-        public CatalogController(ILogger<CatalogController> logger, DAShoppingLists shoppingListsProxy)
+        public CatalogController(ILogger<CatalogController> logger, DAShoppingLists shoppingListsProxy, SqlServerDbContext context)
         {
             _logger = logger;
             _shoppingListsProxy = shoppingListsProxy;
+            _context = context;
         }
 
         [HttpGet]
         [Route("GetIngredients")]
         public IEnumerable<Ingredient> GetIngredients()
         {
-            DAIngredients proxy = new DAIngredients();
+            DAIngredients proxy = new DAIngredients(_context);
 
             return proxy.GetIngredients();
         }
@@ -32,7 +33,7 @@ namespace API.Controllers
         [Route("GetRecipes")]
         public IEnumerable<Recipe> GetRecipes()
         {
-            DARecipes proxy = new DARecipes();
+            DARecipes proxy = new DARecipes(_context);
 
             return proxy.GetRecipes();
         }
@@ -41,7 +42,7 @@ namespace API.Controllers
         [Route("GetMealPlans")]
         public IEnumerable<MealPlan> GetMealPlans()
         {
-            DAMealPlans proxy = new DAMealPlans();
+            DAMealPlans proxy = new DAMealPlans(_context);
 
             return proxy.GetMealPlans();
         }
@@ -50,7 +51,7 @@ namespace API.Controllers
         [Route("GetRecipeIngredients")]
         public IEnumerable<RecipeIngredientDTO> GetRecipeIngredients()
         {
-            DARecipeIngredients proxy = new DARecipeIngredients();
+            DARecipeIngredients proxy = new DARecipeIngredients(_context);
 
             return proxy.GetRecipeIngredientsDTO();
         }

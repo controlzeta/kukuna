@@ -10,14 +10,17 @@ namespace AccesoDatos
 {
     public class DARecipes
     {
+        private readonly SqlServerDbContext _context;
+
+        public DARecipes(SqlServerDbContext context)
+        {
+            _context = context;
+        }
         public List<Recipe> GetRecipes()
         {
             try
             {
-                using (var context = new SqlServerDbContext())
-                {
-                    return context.Recipes.OrderBy(i => i.RecipeName).ToList();
-                }
+                return _context.Recipes.OrderBy(i => i.RecipeName).ToList();
             }
             catch (Exception ex)
             {
@@ -29,10 +32,7 @@ namespace AccesoDatos
         {
             try
             {
-                using (var context = new SqlServerDbContext())
-                {
-                    return context.Recipes.Where(m => m.RecipeId == id).FirstOrDefault();
-                }
+                return _context.Recipes.Where(m => m.RecipeId == id).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -44,10 +44,7 @@ namespace AccesoDatos
         {
             try
             {
-                using (var context = new SqlServerDbContext())
-                {
-                    return context.Recipes.Where(m => m.RecipeName == name).FirstOrDefault();
-                }
+                return _context.Recipes.Where(m => m.RecipeName == name).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -60,17 +57,14 @@ namespace AccesoDatos
             Recipe r = GetRecipesById(id);
             try
             {
-                using (var context = new SqlServerDbContext())
+                if (r != null)
                 {
-                    if (r != null)
-                    {
-                        r.RecipeName = recipeName;
-                        r.Servings = servings;
-                        r.Instructions = instructions;
-                        context.Entry(r).State = EntityState.Modified;
-                        context.SaveChanges();
-                        return true;
-                    }
+                    r.RecipeName = recipeName;
+                    r.Servings = servings;
+                    r.Instructions = instructions;
+                    _context.Entry(r).State = EntityState.Modified;
+                    _context.SaveChanges();
+                    return true;
                 }
             }
             catch (Exception ex)
@@ -85,14 +79,11 @@ namespace AccesoDatos
             Recipe r = GetRecipesById(id);
             try
             {
-                using (var context = new SqlServerDbContext())
+                if (r != null)
                 {
-                    if (r != null)
-                    {
-                        context.Entry(r).State = EntityState.Deleted;
-                        context.SaveChanges();
-                        return true;
-                    }
+                    _context.Entry(r).State = EntityState.Deleted;
+                    _context.SaveChanges();
+                    return true;
                 }
             }
             catch (Exception ex)
@@ -109,17 +100,14 @@ namespace AccesoDatos
             {
                 if (GetRecipesByName(recipeName) == null)
                 {
-                    using (var context = new SqlServerDbContext())
+                    _context.Recipes.Add(new Recipe
                     {
-                        context.Recipes.Add(new Recipe
-                        {
-                            RecipeName = recipeName,
-                            Instructions = instructions,
-                            Servings = servings
-                        });
-                        context.SaveChanges();
-                        return true;
-                    }
+                        RecipeName = recipeName,
+                        Instructions = instructions,
+                        Servings = servings
+                    });
+                    _context.SaveChanges();
+                    return true;
                 }
             }
             catch (Exception ex)

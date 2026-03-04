@@ -11,93 +11,72 @@ namespace AccesoDatos
 {
     public class DARecipeIngredients
     {
-        //public List<RecipeIngredient> GetRecipeIngredients()
-        //{
-        //    using (var context = new SqlServerDbContext())
-        //    {
-        //        return context.RecipeIngredients.Include
-        //        .Include(r => r.Ingredient)
-        //        .Include(r => r.Recipe)
-        //        .Include(r => r.Unit).ToList();
-        //    }
-        //}
+        private readonly SqlServerDbContext _context;
+
+        public DARecipeIngredients(SqlServerDbContext context)
+        {
+            _context = context;
+        }
+
         public List<RecipeIngredientDTO> GetRecipeIngredientsDTO()
         {
             List<RecipeIngredientDTO> res = new List<RecipeIngredientDTO>();
-
-            using (var context = new SqlServerDbContext())
-            {
-                res = (from ri in context.RecipeIngredients
-                       join i in context.Ingredients on ri.IngredientId equals i.IngredientId
-                       join u in context.Units on ri.UnitId equals u.UnitId
-                       join r in context.Recipes on ri.RecipeId equals r.RecipeId
-                       select new RecipeIngredientDTO
-                       {
-                           RecipeIngredientId = ri.RecipeIngredientId,
-                           RecipeId = (int)ri.RecipeId,
-                           RecipeName = r.RecipeName,
-                           IngredientId = i.IngredientId,
-                           IngredientName = i.IngredientName,
-                           UnitId = (int)ri.UnitId,
-                           UnitName = u.UnitName,
-                           Quantity = ri.Quantity
-                       }
-                       ).ToList();
-                return res;
-            }
+            res = (from ri in _context.RecipeIngredients
+                   join i in _context.Ingredients on ri.IngredientId equals i.IngredientId
+                   join u in _context.Units on ri.UnitId equals u.UnitId
+                   join r in _context.Recipes on ri.RecipeId equals r.RecipeId
+                   select new RecipeIngredientDTO
+                   {
+                       RecipeIngredientId = ri.RecipeIngredientId,
+                       RecipeId = (int)ri.RecipeId,
+                       RecipeName = r.RecipeName,
+                       IngredientId = i.IngredientId,
+                       IngredientName = i.IngredientName,
+                       UnitId = (int)ri.UnitId,
+                       UnitName = u.UnitName,
+                       Quantity = ri.Quantity
+                   }
+                   ).ToList();
+            return res;
         }
 
         public RecipeIngredient GetRecipeIngredientsById(int id)
         {
-            using (var context = new SqlServerDbContext())
-            {
-                return context.RecipeIngredients.Where(m => m.RecipeIngredientId == id).FirstOrDefault();
-            }
+            return _context.RecipeIngredients.Where(m => m.RecipeIngredientId == id).FirstOrDefault();
         }
 
         public RecipeIngredient GetRecipeIngredientsByIngredientId(int id)
         {
-            using (var context = new SqlServerDbContext())
-            {
-                return context.RecipeIngredients.Where(m => m.IngredientId == id).FirstOrDefault();
-            }
-
+            return _context.RecipeIngredients.Where(m => m.IngredientId == id).FirstOrDefault();
         }
 
         public RecipeIngredient GetRecipeIngredientsByIngredientIdAndRecipeId(int ingredientId, int recipeId)
         {
-            using (var context = new SqlServerDbContext())
-            {
-                return context.RecipeIngredients.Where(m => m.IngredientId == ingredientId && m.RecipeId == recipeId).FirstOrDefault();
-            }
-
+            return _context.RecipeIngredients.Where(m => m.IngredientId == ingredientId && m.RecipeId == recipeId).FirstOrDefault();
         }
 
         public List<RecipeIngredientDTO> GetRecipeIngredientsDTOById(int id)
         {
             List<RecipeIngredientDTO> res = new List<RecipeIngredientDTO>();
 
-            using (var context = new SqlServerDbContext())
-            {
-                res = (from ri in context.RecipeIngredients
-                       join i in context.Ingredients on ri.IngredientId equals i.IngredientId
-                       join u in context.Units on ri.UnitId equals u.UnitId
-                       join r in context.Recipes on ri.RecipeId equals r.RecipeId
-                       where ri.RecipeId == id
-                       select new RecipeIngredientDTO
-                       {
-                           RecipeIngredientId = ri.RecipeIngredientId,
-                           RecipeId = (int)ri.RecipeId,
-                           RecipeName = r.RecipeName,
-                           IngredientId = i.IngredientId,
-                           IngredientName = i.IngredientName,
-                           UnitId = (int)ri.UnitId,
-                           UnitName = u.UnitName,
-                           Quantity = ri.Quantity
-                       }
-                       ).ToList();
-                return res;
-            }
+            res = (from ri in _context.RecipeIngredients
+                   join i in _context.Ingredients on ri.IngredientId equals i.IngredientId
+                   join u in _context.Units on ri.UnitId equals u.UnitId
+                   join r in _context.Recipes on ri.RecipeId equals r.RecipeId
+                   where ri.RecipeId == id
+                   select new RecipeIngredientDTO
+                   {
+                       RecipeIngredientId = ri.RecipeIngredientId,
+                       RecipeId = (int)ri.RecipeId,
+                       RecipeName = r.RecipeName,
+                       IngredientId = i.IngredientId,
+                       IngredientName = i.IngredientName,
+                       UnitId = (int)ri.UnitId,
+                       UnitName = u.UnitName,
+                       Quantity = ri.Quantity
+                   }
+                   ).ToList();
+            return res;
 
         }
 
@@ -134,18 +113,15 @@ namespace AccesoDatos
             RecipeIngredient i = GetRecipeIngredientsById(id);
             try
             {
-                using (var context = new SqlServerDbContext())
+                if (i != null)
                 {
-                    if (i != null)
-                    {
-                        if(unitId != null)
-                            i.UnitId = unitId;
-                        if(quantity != null)
-                            i.Quantity = (decimal)quantity;
-                        context.Entry(i).State = EntityState.Modified;
-                        context.SaveChanges();
-                        return true;
-                    }
+                    if (unitId != null)
+                        i.UnitId = unitId;
+                    if (quantity != null)
+                        i.Quantity = (decimal)quantity;
+                    _context.Entry(i).State = EntityState.Modified;
+                    _context.SaveChanges();
+                    return true;
                 }
             }
             catch (Exception ex)
@@ -160,14 +136,11 @@ namespace AccesoDatos
             RecipeIngredient i = GetRecipeIngredientsById(id);
             try
             {
-                using (var context = new SqlServerDbContext())
+                if (i != null)
                 {
-                    if (i != null)
-                    {
-                        context.Entry(i).State = EntityState.Deleted;
-                        context.SaveChanges();
-                        return true;
-                    }
+                    _context.Entry(i).State = EntityState.Deleted;
+                    _context.SaveChanges();
+                    return true;
                 }
             }
             catch (Exception ex)
@@ -184,18 +157,15 @@ namespace AccesoDatos
             {
                 if (GetRecipeIngredientsByIngredientIdAndRecipeId(ingredientId, recipeId) == null)
                 {
-                    using (var context = new SqlServerDbContext())
+                    _context.RecipeIngredients.Add(new RecipeIngredient
                     {
-                        context.RecipeIngredients.Add(new RecipeIngredient
-                        {
-                            RecipeId = recipeId,
-                            UnitId = unitId,
-                            IngredientId = ingredientId,
-                            Quantity = quantity
-                        });
-                        context.SaveChanges();
-                        return true;
-                    }
+                        RecipeId = recipeId,
+                        UnitId = unitId,
+                        IngredientId = ingredientId,
+                        Quantity = quantity
+                    });
+                    _context.SaveChanges();
+                    return true;
                 }
             }
             catch (Exception ex)

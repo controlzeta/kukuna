@@ -1,4 +1,5 @@
 ﻿﻿using AccesoDatos.Entities;
+﻿﻿using AccesoDatos.Entities;
 using AccesoDatos.Models;
 using System;
 using System.Collections.Generic;
@@ -6,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace AccesoDatos
 {
     public class DAShoppingLists
     {
         private readonly SqlServerDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public DAShoppingLists(SqlServerDbContext context)
+        public DAShoppingLists(SqlServerDbContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         public async Task<List<ShoppingListDTO>> GetShoppingListsAsync()

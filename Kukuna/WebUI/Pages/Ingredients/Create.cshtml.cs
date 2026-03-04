@@ -12,10 +12,12 @@ namespace WebUI.Pages.Ingredients
 {
     public class CreateModel : PageModel
     {
-        DAIngredients proxy = new DAIngredients();
+        private readonly SqlServerDbContext _context;
+        
 
-        public CreateModel()
+        public CreateModel(SqlServerDbContext context)
         {
+            _context = context;
         }
 
         public IActionResult OnGet()
@@ -33,6 +35,7 @@ namespace WebUI.Pages.Ingredients
             {
                 return Page();
             }
+             DAIngredients proxy = new DAIngredients(_context);
 
             proxy.InsertIngredient(Ingredient.IngredientName, Ingredient.Category);
 

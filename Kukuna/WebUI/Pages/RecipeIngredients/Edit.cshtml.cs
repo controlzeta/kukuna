@@ -13,14 +13,20 @@ namespace WebUI.Pages.RecipeIngredients
 {
     public class EditModel : PageModel
     {
-        DARecipeIngredients proxy = new DARecipeIngredients();
-        DAIngredients proxyIng = new DAIngredients();
+        private readonly SqlServerDbContext _context;
+        private readonly DAIngredients proxyIng;
+        DARecipeIngredients proxy;
         DAUnits proxyUn = new DAUnits();
-        DARecipes proxyRe= new DARecipes();
-        public EditModel()
+        DARecipes proxyRe;
+
+        public EditModel(SqlServerDbContext context)
         {
-            
+            _context = context;
+            proxyIng = new DAIngredients(_context);
+            proxy = new DARecipeIngredients(_context);
+            proxyRe = new DARecipes(_context);
         }
+
 
         [BindProperty]
         public RecipeIngredient RecipeIngredient { get; set; } = default!;

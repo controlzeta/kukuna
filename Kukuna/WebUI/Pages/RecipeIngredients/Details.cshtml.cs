@@ -13,9 +13,12 @@ namespace WebUI.Pages.RecipeIngredients
 {
     public class DetailsModel : PageModel
     {
-        DARecipeIngredients proxy = new DARecipeIngredients();
-        public DetailsModel()
+        private readonly SqlServerDbContext _context;
+        DARecipeIngredients proxy;
+        public DetailsModel(SqlServerDbContext context)
         {
+            _context = context;
+            proxy = new DARecipeIngredients(_context);
         }
 
         public RecipeIngredientDTO RecipeIngredient { get; set; } = default!;

@@ -12,11 +12,13 @@ namespace WebUI.Pages.Ingredients
 {
     public class DetailsModel : PageModel
     {
-        DAIngredients proxy = new DAIngredients();
+        private readonly SqlServerDbContext _context;
+        DAIngredients proxy;
 
-        public DetailsModel()
+        public DetailsModel(SqlServerDbContext context)
         {
-
+            _context = context;
+            proxy = new DAIngredients(_context);
         }
 
         public Ingredient Ingredient { get; set; } = default!;

@@ -13,8 +13,13 @@ namespace WebUI.Pages.MealPlans
 {
     public class IndexModel : PageModel
     {
-        DAMealPlans proxy = new DAMealPlans();
-
+        private readonly SqlServerDbContext _context;
+        DAMealPlans proxy;
+        public IndexModel(SqlServerDbContext context)
+        {
+            _context = context;
+            proxy = new DAMealPlans(_context);
+        }
         public IList<MealPlanDTO> MealPlan { get;set; } = default!;
 
         public async Task OnGetAsync()

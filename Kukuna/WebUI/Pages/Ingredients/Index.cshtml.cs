@@ -13,15 +13,19 @@ namespace WebUI.Pages.Ingredients
 {
     public class IndexModel : PageModel
     {
+        private readonly SqlServerDbContext _context;
+        private readonly DAIngredients proxy;
 
-        public IndexModel()
-        { }
+        public IndexModel(SqlServerDbContext context)
+        {
+            _context = context;
+            proxy = new DAIngredients(_context);
+        }
 
         public IList<Ingredient> Ingredient { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            DAIngredients proxy = new DAIngredients();
             Ingredient = proxy.GetIngredients();
         }
     }

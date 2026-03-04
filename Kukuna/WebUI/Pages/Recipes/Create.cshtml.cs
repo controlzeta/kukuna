@@ -12,10 +12,12 @@ namespace WebUI.Pages.Recipes
 {
     public class CreateModel : PageModel
     {
-        DARecipes proxy = new DARecipes();
+        private readonly SqlServerDbContext _context;
+        DARecipes proxy;
 
-        public CreateModel()
+        public CreateModel(SqlServerDbContext context)
         {
+            proxy = new DARecipes(_context);
         }
 
         public IActionResult OnGet()

@@ -12,11 +12,12 @@ namespace WebUI.Pages.Recipes
 {
     public class DeleteModel : PageModel
     {
-        DARecipes proxy = new DARecipes();
+        private readonly SqlServerDbContext _context;
+        DARecipes proxy;
 
-        public DeleteModel()
+        public DeleteModel(SqlServerDbContext context)
         {
-            
+            proxy = new DARecipes(_context);
         }
 
         [BindProperty]
